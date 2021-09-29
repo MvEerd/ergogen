@@ -54,7 +54,7 @@ module.exports = {
         SWDCLK: 'SWDCLK',
         SWDIO: 'SWDIO',
         VBUS: 'VBUS',
-        VDD: 'VDD'
+        VDD: 'VDD',
     },
     params: {
         class: 'MCU'
