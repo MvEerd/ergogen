@@ -98,7 +98,7 @@ module.exports = {
   (fp_line (start 17.79778 -20.99818) (end 0.67056 -20.99818) (layer "${ p.param.side }.SilkS") (width 0.127))
   (fp_line (start 4.39928 -22.42312) (end 13.39342 -22.42312) (layer "${ p.param.side }.SilkS") (width 0.127))
   (fp_line (start 12.319 -17.018) (end 14.097 -17.018) (layer "${ p.param.side }.SilkS") (width 0.06604))
-  (fp_circle (center -0.889 -18.161) (end -0.889 -18.415) (layer "F.SilkS") (width 1))
+  (fp_circle (center -0.889 -18.161) (end -0.889 -18.415) (layer "${ p.param.side }.SilkS") (width 1))
 )
      `
 }
