@@ -25,7 +25,7 @@ module.exports = {
         side:  'F'
     },
     body:   p => `
-      (footprint "Seeeduino XIAO-MOUDLE14P-2.54-21X17.8MM tht maybe" (layer "${ p.param.side }.Cu") (tedit 613ABEDD) (attr smd)
+      (module "Seeeduino XIAO-MOUDLE14P-2.54-21X17.8MM tht maybe" (layer "${ p.param.side }.Cu") (tedit 613ABEDD) (attr smd)
       ${ p.at /* parametric position */ }
 
   ${ ``/* Pads */ }
