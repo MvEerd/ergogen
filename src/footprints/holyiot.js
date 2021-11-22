@@ -54,7 +54,7 @@ module.exports = {
         SWDCLK: 'SWDCLK',
         SWDIO: 'SWDIO',
         VBUS: 'VBUS',
-        VDD: 'VDD'
+        VDD: 'VDD',
     },
     params: {
         class: 'MCU'
@@ -68,18 +68,7 @@ module.exports = {
         (fp_text value nRF52840_holyiot_18010 (at 0 2.8) (layer F.Fab)
           (effects (font (size 1 1) (thickness 0.15)))
         )
-        (fp_line (start -6.75 -9) (end 6.75 -9) (layer F.CrtYd) (width 0.12))
-        (fp_line (start 6.75 -9) (end 6.75 9) (layer F.CrtYd) (width 0.12))
-        (fp_line (start 6.75 9) (end -6.75 9) (layer F.CrtYd) (width 0.12))
-        (fp_line (start -6.75 9) (end -6.75 -9) (layer F.CrtYd) (width 0.12))
-        (fp_line (start -9.5 -11.2) (end 9.5 -11.2) (layer Dwgs.User) (width 0.12))
-        (fp_line (start 9.5 -11.2) (end 9.5 -6.2) (layer Dwgs.User) (width 0.12))
-        (fp_line (start 9.5 -6.2) (end -9.5 -6.2) (layer Dwgs.User) (width 0.12))
-        (fp_line (start -9.5 -6.2) (end -9.5 -11.2) (layer Dwgs.User) (width 0.12))
 
-        (fp_text user "Add keepout" (at 0 -9 ${ p.rot }) (layer Dwgs.User)
-          (effects (font (size 1 1) (thickness 0.15)))
-        )
         (pad 1 smd rect (at -6.75 -5.7 ${ p.rot }) (size 1.524 0.7) (layers F.Cu F.Paste F.Mask)  ${ p.net.GND.str })
         (pad 2 smd rect (at -6.75 -4.6 ${ p.rot }) (size 1.524 0.7) (layers F.Cu F.Paste F.Mask)  ${ p.net.P110.str })
         (pad 3 smd rect (at -6.75 -3.5 ${ p.rot }) (size 1.524 0.7) (layers F.Cu F.Paste F.Mask)  ${ p.net.P111.str })
@@ -135,6 +124,28 @@ module.exports = {
         (pad 53 thru_hole rect (at 4.25 3.1 ${ 180 + p.rot }) (size 1.524 0.7) (drill 0.4) (layers *.Cu *.Mask) ${ p.net.P014.str })
         (pad 54 thru_hole rect (at 4.25 4.2 ${ 180 + p.rot }) (size 1.524 0.7) (drill 0.4) (layers *.Cu *.Mask) ${ p.net.P013.str })
         (pad 55 thru_hole rect (at 4.25 5.3 ${ 180 + p.rot }) (size 1.524 0.7) (drill 0.4) (layers *.Cu *.Mask) ${ p.net.P016.str })
+        
+        (fp_text user "Antenna keepout" (at 0 -9 ${ p.rot-180 }) (layer Dwgs.User)
+          (effects (font (size 1 1) (thickness 0.15)))
+        )
+        
+        (zone
+            (name "holyiot-keepout")
+            (layers F&B.Cu)
+            (hatch edge 0.508)
+            (connect_pads (clearance 0))
+            (min_thickness 0.254)
+            (keepout (tracks not_allowed) (vias not_allowed) (pads not_allowed ) (copperpour not_allowed) (footprints not_allowed))
+            (fill (thermal_gap 0.508) (thermal_bridge_width 0.508))
+            (polygon
+              (pts
+                (xy ${p.xy(-9.5, -11.2)})
+                (xy ${p.xy(9.5, -11.2)})
+                (xy ${p.xy(9.5, -6.2)})
+                (xy ${p.xy(-9.5, -6.2)})
+              )
+            )
+        )
     )
     `
 }
